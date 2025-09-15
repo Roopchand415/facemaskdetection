@@ -91,9 +91,10 @@ validation/
 
 
 ## 👨‍⚕️ Author
-**Roop** — Medical Officer & Tech Enthusiast  
-🔗 [LinkedIn](https://linkedin.com/in/yourprofile)  
-💻 [Portfolio](https://yourportfolio.com)
+**Roop** — CS Student & Tech Enthusiast  
+🔗 [LinkedIn](https://linkedin.com/in/roop-kumar-543999269)  
+💻 [Portfolio](https://roopchand415.github.io)
+
 
 
 
