@@ -4,7 +4,8 @@ A real-time AI system that detects face mask usage using CNN and OpenCV.
 
 ## 📸 Demo
 
-![Demo Screenshot](D:\my learning\python\demo_withmask.png.png)  
+![Demo Screenshot](C:\Users\DELL\OneDrive\Pictures\Screenshots\demo_withmask2.png) 
+
 *Live detection with confidence scores and bounding boxes.*
 
 
@@ -27,22 +28,22 @@ A real-time AI system that detects face mask usage using CNN and OpenCV.
 
 ## 🧰 Tech Stack
 
-| Component      		   | Description                     	   		   |
-|-----------------|------------------------------- |
-| TensorFlow/Keras | CNN model training and evaluation |
-| OpenCV         		   | Webcam capture and face detection |
-| Haar Cascade  		   | Face localization                                   |
-| Matplotlib   		   | Accuracy visualization                       |
-| Python        		   | Core scripting and logic                     |
+| Component      		   | Description      |
+|-----------------|-------------------------------    |
+| TensorFlow/Keras| CNN model training and evaluation |
+| OpenCV          | Webcam capture and face detection |
+| Haar Cascade    | Face localization 		      |
+| Matplotlib   	  | Accuracy visualization   	      |
+| Python          | Core scripting and logic          |
 
 
 ## 📂 Project Structure
 face-mask-detection/ 
-├── train/	 				# Training images (with_mask, without_mask)
+├── train/	 			# Training images (with_mask, without_mask)
 ├── validation/	 			# Validation images
-├── best_mask_model.h5 		# Saved model (HDF5 format) 
-├── facemaskdetection.py 	# Main script 
-├── README.md 					# Project documentation 
+├── best_mask_model.h5 			# Saved model (HDF5 format) 
+├── facemaskdetection.py 		# Main script 
+├── README.md 				# Project documentation 
 └── demo_image.png 			# Screenshot of live detection
 
 
@@ -91,9 +92,13 @@ validation/
 
 
 ## 👨‍⚕️ Author
-**Roop** — Medical Officer & Tech Enthusiast  
-🔗 [LinkedIn](https://linkedin.com/in/yourprofile)  
-💻 [Portfolio](https://yourportfolio.com)
+**Roop** — CS Student & Tech Enthusiast  
+🔗 [LinkedIn](https://linkedin.com/in/roop-kumar-543999269)  
+💻 [Portfolio](https://roopchand415.github.io)
+
+
+
+
 
 
 
