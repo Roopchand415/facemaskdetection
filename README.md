@@ -4,7 +4,7 @@ A real-time AI system that detects face mask usage using CNN and OpenCV.
 
 ## 📸 Demo
 
-![Demo Screenshot](demo_image.png)  
+![Demo Screenshot](C:\Users\DELL\OneDrive\Pictures\Screenshots\demo_withmask2.png) (C:\Users\DELL\OneDrive\Pictures\Screenshots\demo_withmask.png.png) 
 *Live detection with confidence scores and bounding boxes.*
 
 
@@ -94,6 +94,7 @@ validation/
 **Roop** — CS Student & Tech Enthusiast  
 🔗 [LinkedIn](https://linkedin.com/in/roop-kumar-543999269)  
 💻 [Portfolio](https://roopchand415.github.io)
+
 
 
 
