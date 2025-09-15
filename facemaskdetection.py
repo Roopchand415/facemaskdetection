@@ -16,106 +16,110 @@ import base64
 
 
 # Set correct paths
-train_dir = r"C:\Users\DELL\Downloads\face_mask detection-20250831T170337Z-1-001\face_mask detection\train"
+train_dir = r"D:\my learning\python\face_mask detection-20250831T170337Z-1-001\face_mask detection\train"
 
-val_dir = r"C:\Users\DELL\Downloads\face_mask detection-20250831T170337Z-1-001\face_mask detection\validation"
+val_dir = r"D:\my learning\python\face_mask detection-20250831T170337Z-1-001\face_mask detection\validation"
 
 # Check if paths exist
 print("Train folder exists:", os.path.exists(train_dir))
 print("Validation folder exists:", os.path.exists(val_dir))
 
-# ImageDataGenerator with augmentation
-train_datagen = ImageDataGenerator(
-    rescale=1./255,
-    rotation_range=20,
-    width_shift_range=0.2,
-    height_shift_range=0.2,
-    shear_range=0.2,
-    zoom_range=0.2,
-    horizontal_flip=True,
-    fill_mode='nearest'
-)
+# # ImageDataGenerator with augmentation
+# train_datagen = ImageDataGenerator(
+#     rescale=1./255,
+#     rotation_range=20,
+#     width_shift_range=0.2,
+#     height_shift_range=0.2,
+#     shear_range=0.2,
+#     zoom_range=0.2,
+#     horizontal_flip=True,
+#     fill_mode='nearest'
+# )
 
-val_datagen = ImageDataGenerator(rescale=1./255)
+# val_datagen = ImageDataGenerator(rescale=1./255)
 
-# Load data
-train_generator = train_datagen.flow_from_directory(
-    train_dir,
-    target_size=(150, 150),
-    batch_size=32,
-    class_mode='binary',
-    classes=['without_mask', 'with_mask']  # Ensure folder names match
-)
+# # Load data
+# train_generator = train_datagen.flow_from_directory(
+#     train_dir,
+#     target_size=(150, 150),
+#     batch_size=32,
+#     class_mode='binary',
+#     classes=['without_mask', 'with_mask']  # Ensure folder names match
+# )
 
-validation_generator = val_datagen.flow_from_directory(
-    val_dir,
-    target_size=(150, 150),
-    batch_size=32,
-    class_mode='binary',
-    classes=['without_mask', 'with_mask']
-)
+# validation_generator = val_datagen.flow_from_directory(
+#     val_dir,
+#     target_size=(150, 150),
+#     batch_size=32,
+#     class_mode='binary',
+#     classes=['without_mask', 'with_mask']
+# )
 
 
-#  Define the CNN model
-model = tf.keras.Sequential([
-     tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(150, 150, 3)),
-     tf.keras.layers.MaxPooling2D(2, 2),
-     tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
-     tf.keras.layers.MaxPooling2D(2, 2),
+# #  Define the CNN model
+# model = tf.keras.Sequential([
+#      tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(150, 150, 3)),
+#      tf.keras.layers.MaxPooling2D(2, 2),
+#      tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+#      tf.keras.layers.MaxPooling2D(2, 2),
 
-     tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
-     tf.keras.layers.MaxPooling2D(2, 2),
+#      tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
+#      tf.keras.layers.MaxPooling2D(2, 2),
 
-     tf.keras.layers.Conv2D(256, (3, 3), activation='relu'),
-     tf.keras.layers.MaxPooling2D(2, 2),
+#      tf.keras.layers.Conv2D(256, (3, 3), activation='relu'),
+#      tf.keras.layers.MaxPooling2D(2, 2),
 
-     tf.keras.layers.Flatten(),
-     tf.keras.layers.Dense(512, activation='relu'),
-     tf.keras.layers.Dropout(0.5),
-     tf.keras.layers.Dense(1, activation='sigmoid')
- ])
+#      tf.keras.layers.Flatten(),
+#      tf.keras.layers.Dense(512, activation='relu'),
+#      tf.keras.layers.Dropout(0.5),
+#      tf.keras.layers.Dense(1, activation='sigmoid')
+#  ])
 
-# Compile the model
-model.compile(
-     optimizer=tf.keras.optimizers.Adam(learning_rate=0.0001),
-     loss='binary_crossentropy',
-     metrics=['accuracy']
- )
+# # Compile the model
+# model.compile(
+#      optimizer=tf.keras.optimizers.Adam(learning_rate=0.0001),
+#      loss='binary_crossentropy',
+#      metrics=['accuracy']
+#  )
 
-# Callbacks
-callbacks = [
-    EarlyStopping(monitor='val_loss', patience=3, verbose=1),
-    ModelCheckpoint('best_mask_model.keras', monitor='val_accuracy', save_best_only=True, verbose=1)
+# # Callbacks
+# callbacks = [
+#     EarlyStopping(monitor='val_loss', patience=3, verbose=1),
+#     ModelCheckpoint('best_mask_model.keras', monitor='val_accuracy', save_best_only=True, verbose=1)
 
-]
+# ]
 
-# Train the model
-history = model.fit(
-     train_generator,
-     epochs=5,
-     validation_data=validation_generator,
-     callbacks=callbacks
- )
+# # Train the model
+# history = model.fit(
+#      train_generator,
+#      epochs=1,
+#      validation_data=validation_generator,
+#      callbacks=callbacks
+#  )
 
-plt.plot(history.history['accuracy'], label='Train Accuracy')
-plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
-plt.title("Model Accuracy Over Epochs")
-plt.xlabel("Epochs")
-plt.ylabel("Accuracy")
-plt.legend()
-plt.grid(True)
-plt.show()
+# plt.plot(history.history['accuracy'], label='Train Accuracy')
+# plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
+# plt.title("Model Accuracy Over Epochs")
+# plt.xlabel("Epochs")
+# plt.ylabel("Accuracy")
+# plt.legend()
+# plt.grid(True)
+# plt.show()
 
- # Evaluate the model
-test_loss, test_acc = model.evaluate(validation_generator)
-print(f'\nTest accuracy: {test_acc:.4f}')
+#  # Evaluate the model
+# test_loss, test_acc = model.evaluate(validation_generator)
+# print(f'\nTest accuracy: {test_acc:.4f}')
 
 # Load Haar Cascade for face detection
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-# # Load the best saved model
-# model = load_model('best_mask_model.h5')  # or .keras if you switched
-# face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+# Load the best saved model
+if os.path.exists("best_mask_model.h5"):
+    model = load_model("best_mask_model.h5")
+elif os.path.exists("best_mask_model.keras"):
+    model = load_model("best_mask_model.keras")
+else:
+    raise FileNotFoundError("No saved model found. Train the model first.")
 
 def process_frame(frame):
     # Convert to grayscale for face detection
