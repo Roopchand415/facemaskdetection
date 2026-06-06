@@ -1,0 +1,107 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans, sans-serif); }
+  .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 3rem 2rem; text-align: center; border-radius: 0 0 var(--border-radius-lg, 12px) var(--border-radius-lg, 12px); }
+  .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 12px; margin-bottom: 1rem; }
+  .hero h1 { font-size: 2.2rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .hero p { font-size: 1rem; opacity: 0.8; max-width: 520px; margin: 0 auto 1.5rem; line-height: 1.6; }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: #5DCAA5; color: #04342C; border: none; padding: 10px 22px; border-radius: 8px; font-weight: 500; cursor: pointer; font-size: 14px; text-decoration: none; display: inline-block; }
+  .btn-outline { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); padding: 10px 22px; border-radius: 8px; font-weight: 500; cursor: pointer; font-size: 14px; text-decoration: none; display: inline-block; }
+  .section { padding: 2rem; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .card { background: var(--color-background-primary, #fff); border: 0.5px solid var(--color-border-tertiary, #ddd); border-radius: var(--border-radius-lg, 12px); padding: 1rem 1.25rem; }
+  .card-icon { font-size: 22px; margin-bottom: 8px; }
+  .card h3 { font-size: 14px; font-weight: 500; margin-bottom: 4px; color: var(--color-text-primary); }
+  .card p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+  .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin-top: 1rem; }
+  .tech-pill { background: var(--color-background-secondary, #f5f5f5); border: 0.5px solid var(--color-border-tertiary, #ddd); border-radius: 20px; padding: 6px 14px; font-size: 13px; text-align: center; color: var(--color-text-primary); }
+  .metric-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 1rem; }
+  .metric { background: var(--color-background-secondary, #f5f5f5); border-radius: var(--border-radius-md, 8px); padding: 1rem; text-align: center; }
+  .metric-val { font-size: 24px; font-weight: 500; color: var(--color-text-primary); }
+  .metric-label { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+  h2 { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 1rem; }
+  .steps { counter-reset: step; }
+  .step { display: flex; gap: 12px; margin-bottom: 1rem; align-items: flex-start; }
+  .step-num { counter-increment: step; background: #0f3460; color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; flex-shrink: 0; margin-top: 2px; }
+  .step p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
+  .step p strong { color: var(--color-text-primary); font-weight: 500; }
+  code { background: var(--color-background-secondary, #f0f0f0); border-radius: 4px; padding: 2px 6px; font-family: var(--font-mono, monospace); font-size: 12px; }
+  .demo-area { background: #0d1117; border-radius: var(--border-radius-lg, 12px); padding: 1.5rem; margin-top: 1rem; text-align: center; }
+  .demo-img { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .demo-box { border-radius: 8px; padding: 0.75rem 1.5rem; font-size: 13px; font-weight: 500; }
+  .mask-yes { background: rgba(93,202,165,0.2); border: 1px solid #5DCAA5; color: #5DCAA5; }
+  .mask-no { background: rgba(226,75,74,0.2); border: 1px solid #E24B4A; color: #E24B4A; }
+  .mask-unc { background: rgba(239,159,39,0.2); border: 1px solid #EF9F27; color: #EF9F27; }
+  .footer { background: var(--color-background-secondary, #f5f5f5); padding: 1.5rem 2rem; text-align: center; border-top: 0.5px solid var(--color-border-tertiary); font-size: 13px; color: var(--color-text-secondary); }
+  .preview-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 0.5rem; }
+</style>
+
+<div class="hero">
+  <div class="badge">🤖 AI · Computer Vision · Real-time</div>
+  <h1>🧠 Face Mask Detection</h1>
+  <p>A real-time AI system that detects face mask usage using CNN and OpenCV — supporting public health monitoring and automation.</p>
+  <div class="hero-btns">
+    <a class="btn-primary" href="https://github.com/Roopchand415/facemaskdetection">View on GitHub</a>
+    <a class="btn-outline" href="https://linkedin.com/in/roop-kumar-543999269">Connect on LinkedIn</a>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Detection output</h2>
+  <div class="demo-area">
+    <div class="demo-img">
+      <div class="demo-box mask-yes">✅ Mask — 94.2%</div>
+      <div class="demo-box mask-no">❌ No Mask — 87.5%</div>
+      <div class="demo-box mask-unc">⚠️ Uncertain — 50.1%</div>
+    </div>
+    <p class="preview-label">Confidence-based classification with bounding boxes</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Features</h2>
+  <div class="cards">
+    <div class="card"><div class="card-icon">📷</div><h3>Live webcam</h3><p>Real-time detection from your camera with bounding boxes.</p></div>
+    <div class="card"><div class="card-icon">🧠</div><h3>CNN model</h3><p>Custom-trained convolutional neural network on mask dataset.</p></div>
+    <div class="card"><div class="card-icon">📊</div><h3>Confidence scores</h3><p>Mask / No Mask / Uncertain classification with probabilities.</p></div>
+    <div class="card"><div class="card-icon">📈</div><h3>Accuracy plots</h3><p>Training and validation accuracy visualized with Matplotlib.</p></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Model performance</h2>
+  <div class="metric-row">
+    <div class="metric"><div class="metric-val">~92%</div><div class="metric-label">Training accuracy</div></div>
+    <div class="metric"><div class="metric-val">~85%</div><div class="metric-label">Validation accuracy</div></div>
+    <div class="metric"><div class="metric-val">0.4</div><div class="metric-label">Mask threshold</div></div>
+    <div class="metric"><div class="metric-val">0.6</div><div class="metric-label">No-mask threshold</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Tech stack</h2>
+  <div class="tech-grid">
+    <div class="tech-pill">TensorFlow/Keras</div>
+    <div class="tech-pill">OpenCV</div>
+    <div class="tech-pill">Haar Cascade</div>
+    <div class="tech-pill">Matplotlib</div>
+    <div class="tech-pill">Python</div>
+    <div class="tech-pill">NumPy</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>How to run</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><p><strong>Clone the repo</strong> — <code>git clone https://github.com/Roopchand415/facemaskdetection</code></p></div>
+    <div class="step"><div class="step-num">2</div><p><strong>Install dependencies</strong> — <code>pip install tensorflow opencv-python matplotlib pillow</code></p></div>
+    <div class="step"><div class="step-num">3</div><p><strong>Run the script</strong> — <code>python facemaskdetection.py</code> — a webcam window will open.</p></div>
+    <div class="step"><div class="step-num">4</div><p><strong>Press Q to quit</strong> — closes the webcam window cleanly.</p></div>
+  </div>
+</div>
+
+<div class="footer">
+  Built by <strong>Roop</strong> · CS Student & Tech Enthusiast · <a href="https://linkedin.com/in/roop-kumar-543999269" style="color: var(--color-text-info);">LinkedIn</a>
+</div>
